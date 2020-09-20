@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Landlord.apps.LandlordConfig'
+    'Landlord.apps.LandlordConfig',
+    'Advertisement.apps.AdvertisementConfig',
 ]
 
 MIDDLEWARE = [
