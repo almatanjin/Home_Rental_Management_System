@@ -19,20 +19,17 @@ from django.contrib import admin
 from django.urls import path
 from Landlord import views as Lview
 from User import views as Uview
-<<<<<<< HEAD
 from House  import views as Hviews
-=======
 from Renters import views as Rview
->>>>>>> d573e5e1f4c1150b94ffb6e31e6704052e09c19f
+from Advertisement import views as Adview
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Landlords/',Lview.Landlordinfo),
     path('Registration/',Uview.registration),
-<<<<<<< HEAD
-    path('house/',Hviews.House_info)
-=======
+    path('house/',Hviews.House_info),
     path('Renters/',Rview.Rentersinfo),
     path('NewLandlords/',Lview.insertlandlordinfo),
->>>>>>> d573e5e1f4c1150b94ffb6e31e6704052e09c19f
-]
+    path('Advertisment/',Adview.advertisementinfo)
+    ]

@@ -39,12 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Landlord.apps.LandlordConfig',
-<<<<<<< HEAD
-    'House.apps.HouseConfig'
-=======
-    'Renters.apps.RentersConfig'
->>>>>>> d573e5e1f4c1150b94ffb6e31e6704052e09c19f
-]
+    'House.apps.HouseConfig',
+    'Advertisement.apps.AdvertisementConfig',
+     'Renters.apps.RentersConfig']
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
