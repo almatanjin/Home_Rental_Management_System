@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Landlords/',Lview.Landlordinfo),
     path('Registration/',Uview.registration),
-    path('Renters/',Rview.Rentersinfo)
+    path('Renters/',Rview.Rentersinfo),
+    path('NewLandlords/',Lview.insertlandlordinfo),
 ]
