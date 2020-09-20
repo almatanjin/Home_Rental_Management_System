@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Renters</title>
+</head>
+<body style="background-color: cyan">
+<h1 style="text-align: center ; color: black">All Renters are ready to looking for their home</h1>
+<p style="text-align: center ; color: black">{{ Landlords }}</p>
+<table style="width:100%">
+    {% for i in Renters %}
+      <tr>
+          <th>{{ i.name }}</th>
+          <th>{{ i.email }}</th>
+          <th>{{ i.Contact_number }}</th>
+          <th>{{ i.area }}</th>
+      </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

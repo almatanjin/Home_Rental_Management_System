@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Landlord
 
+
 # Create your views here.
 def Landlordinfo(request) :
     Landlords = Landlord.objects.all()
