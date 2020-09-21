@@ -1,5 +1,5 @@
 from django.db import models
-from Landlord .models import Landlord
+from Landlord .landlord_models import Landlord
 
 
 # Create your models here.

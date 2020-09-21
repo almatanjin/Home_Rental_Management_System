@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Landlord
+from .landlord_models import Landlord
 from .form import InsertLandlord
 
 
