@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import House
+from .house_models import House
 
 # Create your views here.
 def House_info(request):

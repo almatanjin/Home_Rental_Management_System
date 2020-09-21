@@ -1,5 +1,5 @@
 from django import forms
-from .models import Landlord
+from .landlord_models import Landlord
 
 class InsertLandlord(forms.ModelForm):
     class Meta :
