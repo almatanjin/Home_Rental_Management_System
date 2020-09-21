@@ -6,17 +6,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\github project\Home_Rental_Management_System\db.sqlite3</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-=======
-    <data-source source="LOCAL" name="jdbc:sqlite:D:/projects/CSE 309&amp;310/Home_Rental_Management_System/db.sqlite3" uuid="9570278d-73d1-4ee2-bea6-3edcb3cd4084">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
->>>>>>> d573e5e1f4c1150b94ffb6e31e6704052e09c19f
+      <jdbc-url>jdbc:sqlite:C:\Users\ALMA TANJIN\PycharmProjects\Home_Rental_Management_System\db.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>
