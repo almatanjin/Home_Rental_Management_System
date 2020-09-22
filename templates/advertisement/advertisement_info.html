@@ -6,6 +6,15 @@
 </head>
 <body>
 <h1>These are advertisements</h1>
+{{ Advertisment }}
+{% for i in Advertisment %}}
+   <p>
+    <h3>Advertisment : {{ i.id }}</h3> <br>
+    {{ i.landlord }}<br>
+    {{ i.house }}<br>
+
+    </p>
+{% endfor %}}
 
 </body>
 </html>
