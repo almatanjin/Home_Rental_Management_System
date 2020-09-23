@@ -21,8 +21,8 @@ from Landlord import views as Lview
 from User import views as Uview
 from House  import views as Hviews
 from Renters import views as Rview
+from Advertisment import views as Aview
 
-from Advertisement import views as Adview
 
 
 
@@ -32,8 +32,7 @@ urlpatterns = [
     path('Registration/',Uview.registration),
     path('house/',Hviews.House_info),
     path('Renters/',Rview.Rentersinfo),
-
-    path('NewLandlords/',Lview.insertlandlordinfo),
-    path('Advertisment/',Adview.advertisementinfo)
+    path('Advertisment/',Aview.advertisementinfo),
+    path('NewLandlords/',Lview.insertlandlordinfo)
     ]
 

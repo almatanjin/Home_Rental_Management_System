@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .renters_models import Renters
+from .models import Renters
 
 
 # Create your views here.

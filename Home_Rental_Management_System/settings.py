@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Landlord.apps.LandlordConfig',
     'House.apps.HouseConfig',
-    'Advertisement.apps.AdvertisementConfig',
+    'Advertisment.apps.AdvertismentConfig',
      'Renters.apps.RentersConfig']
 
 
