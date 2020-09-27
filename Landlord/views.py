@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .landlord_models import Landlord
 from .form import InsertLandlord
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def Landlordinfo(request) :
     Landlords = Landlord.objects.all()
     print(Landlords)
@@ -11,7 +13,7 @@ def Landlordinfo(request) :
         "Landlords" : Landlords
     }
     return render(request,'landlord/landlordinfo.html',context)
-
+@login_required
 def insertlandlordinfo(request):
     form = InsertLandlord()
     message="Insert Landlord Information"

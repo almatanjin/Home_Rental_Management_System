@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
-</head>
-<body style="background-color: darksalmon">
+{% extends 'base.html' %}
+{% block content %}
 <h1 style="color: aliceblue">For entry ,You should register first</h1>
+    <h3>{{ message }}</h3>
 <form method="POST" action="">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="submit">
    </form>
-
-</body>
-</html>
+{% endblock content %}

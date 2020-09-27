@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Advertisement</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 <h1>These are advertisements</h1>
 {{ Advertisment }}
 {% for i in Advertisment %}}
@@ -15,6 +10,4 @@
 
     </p>
 {% endfor %}}
-
-</body>
-</html>
+{% endblock content %}

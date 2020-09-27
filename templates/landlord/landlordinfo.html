@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Landlords</title>
-</head>
-<body style="background-color: lightcoral">
+{% extends 'base.html' %}
+{% block content %}
 <h1 style="text-align: center ; color: antiquewhite">All Landlors are ready to letout their home</h1>
 <p style="text-align: center ; color: antiquewhite">{{ Landlords }}</p>
 {% for i in Landlords %}
@@ -16,7 +11,4 @@
     </p>
 
 {% endfor %}
-
-
-</body>
-</html>
+{% endblock content %}
