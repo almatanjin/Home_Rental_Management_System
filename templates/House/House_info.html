@@ -6,9 +6,11 @@
     {{ Houses}}
     {% for i in Houses %}
         <p>
-        {{ i.room_no}}<br>
-        {{ i.size_in_sqfeet }}<br>
-        {{ i.rent }}<br>
+        <h3>House : {{ i.id }}</h3>
+        <h4>Room :{{ i.room_no}}<br></h4>
+        <h4>Size_in_sqfeet :{{ i.size_in_sqfeet }}<br></h4>
+        <h4>Rent :{{ i.rent }}<br></h4>
+        <h4>Landlord :{{ i.landlord.name }}<br></h4>
         </p>
 
     {% endfor %}

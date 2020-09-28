@@ -34,16 +34,13 @@ urlpatterns = [
     path('Renters/',Rview.Rentersinfo),
     path('Advertisment/',Aview.advertisementinfo , name='Advertisment'),
     path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
-<<<<<<< HEAD
     path('accounts/',include('django.contrib.auth.urls')),
     path('create-profile/', Uview.create_profile, name='create-profile'),
     path('view-profile/', Uview.view_profile, name='view-profile'),
-]
-=======
     path('InsertHouse/', Hviews.insertHouseinfo, name='InsertHouse'),
+    path('Insertadvertisment/', Aview.insertadvertismentinfo, name='InsertAdvertisment'),
     path('accounts/',include('django.contrib.auth.urls'))
     ]
->>>>>>> a459aedb0f266c4f6dc55ef89008ba5467df7060
 
 
 if settings.DEBUG == True:

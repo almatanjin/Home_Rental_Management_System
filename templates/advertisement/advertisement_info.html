@@ -5,9 +5,12 @@
 {% for i in Advertisment %}}
    <p>
     <h3>Advertisment : {{ i.id }}</h3> <br>
-    {{ i.landlord }}<br>
-    {{ i.house }}<br>
-
+    <img src="{{ i.image.url }}" height="300" width="300"><br>
+    <h4>Landlord :{{ i.landlord.name }}<br></h4>
+    <h4>Address :{{ i.house.address }}<br></h4>
+    <h4>Room :{{ i.house.room_no }}<br></h4>
+    <h4>Size in sqfeet :{{ i.house.size_in_sqfeet }}<br></h4>
+    <h4>Rent :{{ i.house.rent }}<br></h4>
     </p>
 {% endfor %}}
 {% endblock content %}

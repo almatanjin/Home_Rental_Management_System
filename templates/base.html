@@ -7,12 +7,15 @@
 </head>
 <body style="background-color: lightcoral">
  {% if user.is_authenticated %}
-    <h1>{{ user.username }}</h1>
+     <h1>{{ user.username }}</h1>
      <a href ="{% url 'logout' %}">Logout</a><br>
      <a href ="{% url 'Landlords' %}">Landlords list</a><br>
+     <a href ="{% url 'House' %}">House list</a><br>
      <a href ="{% url 'Insertlandlord' %}">Insertlandlord</a><br>
-      <a href ="{% url 'InsertHouse' %}">InsertHouse</a><br>
+     <a href ="{% url 'InsertHouse' %}">InsertHouse</a><br>
+     <a href ="{% url 'InsertAdvertisment' %}">InsertAdvertisment</a><br>
      <a href ="{% url 'Advertisment' %}">Advertisment list</a><br>
+     <a href ="{% url 'password_change' %}">Change Password</a><br>
      <a href ="{% url 'create-profile' %}">Create Profile</a><br>
      <a href ="{% url 'view-profile' %}">View Profile</a><br>
  {% else %}
