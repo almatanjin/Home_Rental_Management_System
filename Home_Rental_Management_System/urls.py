@@ -32,6 +32,7 @@ urlpatterns = [
     path('Renters/',Rview.Rentersinfo),
     path('Advertisment/',Aview.advertisementinfo , name='Advertisment'),
     path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
+    path('InsertHouse/', Hviews.insertHouseinfo, name='InsertHouse'),
     path('accounts/',include('django.contrib.auth.urls'))
     ]
 
