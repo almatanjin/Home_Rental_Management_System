@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'Landlord.apps.LandlordConfig',
     'House.apps.HouseConfig',
     'Advertisment.apps.AdvertismentConfig',
-     'Renters.apps.RentersConfig']
+    'Renters.apps.RentersConfig',
+    'User.apps.UserConfig'
+
+]
 
 
 
@@ -127,4 +130,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'Advertisment'
 LOGOUT_REDIRECT_URL = 'login'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

@@ -20,6 +20,8 @@ from User import views as Uview
 from House  import views as Hviews
 from Renters import views as Rview
 from Advertisment import views as Aview
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -27,11 +29,16 @@ from Advertisment import views as Aview
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Landlords/',Lview.Landlordinfo , name='Landlords'),
-    path('Registration/',Uview.registration,name='Registration'),
+    path('Registration/',Uview.register,name='Registration'),
     path('House/',Hviews.House_info , name='House'),
     path('Renters/',Rview.Rentersinfo),
     path('Advertisment/',Aview.advertisementinfo , name='Advertisment'),
     path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
-    path('accounts/',include('django.contrib.auth.urls'))
-    ]
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('create-profile/', Uview.create_profile, name='create-profile'),
+    path('view-profile/', Uview.view_profile, name='view-profile'),
+]
 
+
+if settings.DEBUG == True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
