@@ -23,6 +23,7 @@ def insertHouseinfo(request):
         message = "Oops,Try again"
         if form.is_valid():
             form.save()
+            form = InsertHouse()
             message = "Successfull !"
 
     context = {
