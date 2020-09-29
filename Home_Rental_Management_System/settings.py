@@ -42,11 +42,12 @@ INSTALLED_APPS = [
     'House.apps.HouseConfig',
     'Advertisment.apps.AdvertismentConfig',
     'Renters.apps.RentersConfig',
-    'User.apps.UserConfig'
+    'User.apps.UserConfig',
+    'crispy_forms'
 
 ]
 
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -3,29 +3,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
     <title>Project</title>
 </head>
 <body style="background-color: lightcoral">
- {% if user.is_authenticated %}
-     <h1>{{ user.username }}</h1>
-     <a href ="{% url 'logout' %}">Logout</a><br>
-     <a href ="{% url 'Landlords' %}">Landlords list</a><br>
-     <a href ="{% url 'House' %}">House list</a><br>
-     <a href ="{% url 'Insertlandlord' %}">Insertlandlord</a><br>
-     <a href ="{% url 'InsertHouse' %}">InsertHouse</a><br>
-     <a href ="{% url 'InsertAdvertisment' %}">InsertAdvertisment</a><br>
-     <a href ="{% url 'Advertisment' %}">Advertisment list</a><br>
-     <a href ="{% url 'password_change' %}">Change Password</a><br>
-     <a href ="{% url 'create-profile' %}">Create Profile</a><br>
-     <a href ="{% url 'view-profile' %}">View Profile</a><br>
- {% else %}
-    <h3 style="color: red">Oooh.Please Login with valid username and password!!</h3>
-     <a href ="{% url 'Registration' %}">Sign Up</a><br>
-     <a href ="{% url 'login' %}">Login</a><br>
- {% endif %}
-{% block content %}
 
-{% endblock content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'House' %}">Home Rental Syatem <span class="sr-only">(current)</span></a>
+      </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'view-profile' %}">View Profile</a>
+              <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
+          </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Insert
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'Insertlandlord' %}">Landloard</a>
+          <a class="dropdown-item" href="{% url 'InsertHouse' %}">House</a>
+          <a class="dropdown-item" href="{% url 'InsertAdvertisment' %}">Advertisement</a>
+        </div>
+      </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          List
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'Landlords' %}">Landloard</a>
+          <a class="dropdown-item" href="{% url 'House' %}">House</a>
+          <a class="dropdown-item" href="{% url 'Advertisment' %}">Advertisement</a>
+        </div>
+      </li>
+    {% endif %}
+
+    </ul>
+      {% if not user.is_authenticated %}
+        <a href="{% url 'Registration' %}" class="btn btn-outline-success mr-2">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+      {% endif %}
+  </div>
+</nav>
+
+
+ <br>
+ <div class="container">
+
+    {% block content %}
+
+    {% endblock content %}
+
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>
 </html>

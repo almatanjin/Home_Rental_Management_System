@@ -1,7 +1,8 @@
 from django import forms
 from .house_models import House
 
+
 class InsertHouse(forms.ModelForm):
-    class Meta :
+    class Meta:
         model = House
-        fields ='__all__'
+        fields = ('size_in_sqfeet', 'rent', 'room_no', 'address', 'landlord', 'image')

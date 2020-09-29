@@ -18,7 +18,7 @@ def insertadvertismentinfo(request):
     form = Insertadvertisment()
     message="Insert House Information"
     if request.method == 'POST' :
-        form = Insertadvertisment(request.POST)
+        form = Insertadvertisment(request.POST, request.FILES)
         message = "Oops,Try again"
         if form.is_valid():
             form.save()

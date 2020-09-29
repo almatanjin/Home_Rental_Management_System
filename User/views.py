@@ -8,7 +8,6 @@ from .models import Profile
 # Create your views here.
 
 def register(request):
-
     form = UserCreationForm()
 
     if request.method == "POST":
@@ -21,6 +20,7 @@ def register(request):
         'form' : form
     }
     return render(request, 'useregister/useregister.html', context)
+
 
 @login_required
 def create_profile(request):

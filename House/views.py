@@ -19,11 +19,10 @@ def insertHouseinfo(request):
     form = InsertHouse()
     message="Insert House Information"
     if request.method == 'POST' :
-        form = InsertHouse(request.POST)
+        form = InsertHouse(request.POST, request.FILES)
         message = "Oops,Try again"
         if form.is_valid():
             form.save()
-            form = InsertHouse()
             message = "Successfull !"
 
     context = {
