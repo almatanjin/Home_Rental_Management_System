@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>These are advertisements</h1>
+
+{% for i in Advertisment %}
+   <p>
+    <h3>Advertisment : {{ i.id }}</h3> <br>
+    <img src="{{ i.image1.url }}" height="300" width="300">
+    <img src="{{ i.image2.url }}" height="300" width="300"> <br>
+
+    </p>
+{% endfor %}}
+{% endblock content %}

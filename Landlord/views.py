@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .landlord_models import Landlord
 from .form import InsertLandlord
 from django.contrib.auth.decorators import login_required
@@ -24,7 +24,7 @@ def insertlandlordinfo(request):
             form.save()
             form = InsertLandlord()
             message = "Successfully you become a landord.Now you an letout you house for rent."
-
+            return redirect('Landlords')
     context = {
         'form' : form,
         'message' : message

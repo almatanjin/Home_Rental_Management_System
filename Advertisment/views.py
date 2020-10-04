@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .advertisment_models import Advertisement
 from .form import Insertadvertisment
 from django.contrib.auth.decorators import login_required
@@ -13,6 +13,8 @@ def advertisementinfo(request):
     return render(request,'advertisement/advertisement_info.html',context)
 
 
+
+
 @login_required
 def insertadvertismentinfo(request):
     form = Insertadvertisment()
@@ -24,6 +26,7 @@ def insertadvertismentinfo(request):
             form.save()
             form = Insertadvertisment()
             message = "Successfull !"
+            return redirect('Advertisment')
 
     context = {
         'form' : form,
@@ -31,3 +34,10 @@ def insertadvertismentinfo(request):
     }
     return render(request,'advertisement/insertadvertisment.html',context)
 
+def advertisementpic(request):
+    advertisment = Advertisement.objects.all()
+    print(advertisment)
+    context = {
+        "Advertisment": advertisment
+    }
+    return render(request,'advertisement/home.html',context)
