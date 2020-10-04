@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>These are advertisements</h1>
-{{ Advertisment }}
-{% for i in Advertisment %}}
+
+{% for i in Advertisment %}
    <p>
     <h3>Advertisment : {{ i.id }}</h3> <br>
     <img src="{{ i.image1.url }}" height="300" width="300">
-    <img src="{{ i.image2.url }}" height="300" width="300"> <br>
+    <img src="{{ i.image2.url }}" height="300" width="300"><br>
     <h4>Landlord :{{ i.landlord.name }}<br></h4>
     <h4>Address :{{ i.house.address }}<br></h4>
     <h4>Room :{{ i.house.room_no }}<br></h4>

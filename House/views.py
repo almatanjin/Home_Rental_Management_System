@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .house_models import House
 from .form import InsertHouse
 from django.contrib.auth.decorators import login_required
@@ -25,6 +25,7 @@ def insertHouseinfo(request):
             form.save()
             form = InsertHouse()
             message = "Successfull !"
+            return redirect('House')
 
     context = {
         'form' : form,
