@@ -21,5 +21,5 @@ class House(models.Model):
     landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE, default=1)
     image = models.ImageField(upload_to='images/Houes', blank=True, default='images/thh.jpg')
 
-    def __str__(self):
-        return self.landlord.name
+    #def __str__(self):
+       # return self.address.city

@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content  %}
+    {% if does_exists == True %}
+
+        <div class="card bg-light mb-2`" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{ search.image1.url }}" class="card-img" alt="...">
+              <img src="{{ search.image2.url }}" class="card-img" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Landlord :  {{ search.landlord.name }}</h5>
+                <p class="card-text">
+                    Contact: {{ search.landlord.Contact_number }} <br>
+                    {{ search.id }} <br>
+                    {{ search.house }} <br>
+                    Area: {{ search.house.address.area}} <br>
+
+                </p>
+                <p class="card-text"><small class="text-muted"></small></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+    {% else %}
+         <h1>No Advertisement</h1>
+    {% endif %}
+
+
+{% endblock content %}

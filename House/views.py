@@ -7,9 +7,20 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def House_info(request):
     Houses = House.objects.all()
+
     print(Houses)
+
+
+    #if request.method == 'POST':
+
+        #Houses = House.objects.filter(address__area__icontains=request.POST['search'])
+
+
+
+
     context = {
-        "Houses": Houses
+        "Houses": Houses,
+        #"Addresses" : Addresses
     }
     return render(request,'House/House_info.html',context)
 
@@ -21,14 +32,19 @@ def insertHouseinfo(request):
     if request.method == 'POST' :
         form = InsertHouse(request.POST, request.FILES)
         message = "Oops,Try again"
+
+
         if form.is_valid():
+
             form.save()
+
             form = InsertHouse()
             message = "Successfull !"
             return redirect('House')
 
     context = {
         'form' : form,
-        'message' : message
+        'message' : message,
+
     }
     return render(request,'House/inserthouse.html',context)

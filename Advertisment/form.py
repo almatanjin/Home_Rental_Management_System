@@ -4,4 +4,4 @@ from .advertisment_models import Advertisement
 class Insertadvertisment(forms.ModelForm):
     class Meta :
         model = Advertisement
-        fields ='__all__'
+        fields = ('landlord', 'house', 'image1', 'image2')

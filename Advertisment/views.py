@@ -7,6 +7,12 @@ from django.contrib.auth.decorators import login_required
 def advertisementinfo(request):
     advertisment = Advertisement.objects.all()
     print(advertisment)
+
+    if request.method == 'POST':
+        advertisment = Advertisement.objects.filter(house__address__area__icontains=request.POST['search'])
+        #addresses = Address.objects.filter(area__icontains=request.POST['search'])
+
+
     context = {
         "Advertisment": advertisment
     }
@@ -15,10 +21,11 @@ def advertisementinfo(request):
 
 
 
+
 @login_required
 def insertadvertismentinfo(request):
     form = Insertadvertisment()
-    message="Insert House Information"
+    message="Insert Advertisement Information"
     if request.method == 'POST' :
         form = Insertadvertisment(request.POST, request.FILES)
         message = "Oops,Try again"
@@ -41,3 +48,31 @@ def advertisementpic(request):
         "Advertisment": advertisment
     }
     return render(request,'advertisement/home.html',context)
+
+
+
+
+
+
+
+def showAdvertisement(request, advertisement_id):
+
+    searched_Advertisment=  Advertisement.objects.filter( id=advertisement_id)
+    print(searched_Advertisment)
+
+
+
+    if len (searched_Advertisment)==0:
+        does_exists =False
+        context = {
+            'does_exists': does_exists,
+        }
+    else:
+        does_exists = True
+        search = searched_Advertisment[0]
+        context = {
+        'does_exists': does_exists,
+        'search': search
+       }
+
+    return render(request, 'advertisement/advertisement_detailsview.html', context)

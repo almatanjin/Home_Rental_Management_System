@@ -40,6 +40,9 @@ urlpatterns = [
     path('InsertHouse/', Hviews.insertHouseinfo, name='InsertHouse'),
     path('Insertadvertisment/', Aview.insertadvertismentinfo, name='InsertAdvertisment'),
     path('Home/', Aview.advertisementpic, name='Advertismentspicture'),
+    path('profile/', Uview.view_profile, name='profile'),
+    path('Advertisment/<int:advertisement_id>', Aview.showAdvertisement, name='advertisements-detail')
+
     ]
 
 
