@@ -23,14 +23,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Advertisment' %}"><h3>Home Rental Management System</h3> <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'Advertisment' %}"><h3>Home Rental System</h3> <span class="sr-only">(current)</span></a>
 
         {% if user.is_authenticated %}
 
           <li class="nav-item dropdown">
 
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Profile
+              {{ user.username }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'create-profile' %}">Create Profile</a>
@@ -53,20 +53,26 @@
         </div>
       </li>
 
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          List
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'Landlords' %}">Landloard</a>
-          <a class="dropdown-item" href="{% url 'House' %}">House</a>
-          <a class="dropdown-item" href="{% url 'Advertisment' %}">Advertisement</a>
-        </div>
-      </li>
+
+         </li>
+            <li class="nav-item ">
+            <a class="dropdown-item" href="{% url 'Landlords' %}">Landlords List</a>
+         </li>
+
+
+          </li>
+            <li class="nav-item ">
+            <a class="dropdown-item" href="{% url 'House' %}">House List</a>
+         </li>
+
+            </li>
+            <li class="nav-item ">
+            <a class="dropdown-item" href="{% url 'Advertisment' %}">Advertisment List</a>
+         </li>
+
+
     </ul>
-        <li class="nav-item ">
-            <a class="nav-link" href="{% url 'profile' %}"><h3>{{ user.username }}</h3> </a>
-    </li>
+
             <li class="nav-item ">
             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
     </li>

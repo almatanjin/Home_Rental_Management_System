@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'Advertisment.apps.AdvertismentConfig',
     'Renters.apps.RentersConfig',
     'User.apps.UserConfig',
-    'crispy_forms'
+    'crispy_forms',
 
 ]
 
