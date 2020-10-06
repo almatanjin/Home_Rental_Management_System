@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+
 {% load crispy_forms_tags %}
 
     <h3>{{ message }}</h3>
+
     <form method="post">
         {% csrf_token %}
         {{ form | crispy }}

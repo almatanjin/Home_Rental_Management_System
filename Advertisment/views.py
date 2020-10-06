@@ -44,8 +44,10 @@ def insertadvertismentinfo(request):
 def advertisementpic(request):
     advertisment = Advertisement.objects.all()
     print(advertisment)
+
     context = {
-        "Advertisment": advertisment
+        "Advertisment": advertisment,
+
     }
     return render(request,'advertisement/home.html',context)
 
@@ -54,7 +56,7 @@ def advertisementpic(request):
 
 
 
-
+@login_required
 def showAdvertisement(request, advertisement_id):
 
     searched_Advertisment=  Advertisement.objects.filter( id=advertisement_id)

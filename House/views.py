@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .house_models import House
-from .form import InsertHouse
+from .form import InsertHouse,InsertAddress
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -48,3 +48,21 @@ def insertHouseinfo(request):
 
     }
     return render(request,'House/inserthouse.html',context)
+
+@login_required
+def insertaddressinfo(request):
+    form = InsertAddress()
+    message="Insert house address"
+    if request.method == 'POST' :
+        form = InsertAddress(request.POST)
+        message = "Oops,Try again"
+        if form.is_valid():
+            form.save()
+            form = InsertAddress()
+            message = "Successful!!"
+            return redirect('InsertHouse')
+    context = {
+        'form' : form,
+        'message' : message
+    }
+    return render(request,'house/insertaddress.html',context)

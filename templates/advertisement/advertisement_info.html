@@ -5,7 +5,7 @@
 
 
 
-<h1>These are some advertisements.Please check your desire house!</h1>
+<h3>These are some advertisements.Please check your desire house!</h3>
   <div id="carouselExampleCaptions" class="carousel slide mb-4" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -61,8 +61,8 @@
      {% for i in Advertisment %}
           <div class="col mb-4">
             <div class="card">
-              <img src="{{ i.image1.url }}" height="300" width="300">
-              <img src="{{ i.image2.url }}" height="300" width="300"><br>
+              <img src="{{ i.image1.url }}" height="300" width="349"><br>
+              <img src="{{ i.image2.url }}" height="300" width="349">
 
                   <div class="card-body">
                    <h5 class="card-title">Landloard: {{ i.landlord.name }}</h5>

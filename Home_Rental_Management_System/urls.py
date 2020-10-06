@@ -38,6 +38,7 @@ urlpatterns = [
     path('create-profile/', Uview.create_profile, name='create-profile'),
     path('view-profile/', Uview.view_profile, name='view-profile'),
     path('InsertHouse/', Hviews.insertHouseinfo, name='InsertHouse'),
+    path('InsertAddress/', Hviews.insertaddressinfo, name='InsertAddress'),
     path('Insertadvertisment/', Aview.insertadvertismentinfo, name='InsertAdvertisment'),
     path('Home/', Aview.advertisementpic, name='Advertismentspicture'),
     path('profile/', Uview.view_profile, name='profile'),
