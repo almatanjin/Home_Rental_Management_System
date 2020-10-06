@@ -14,12 +14,14 @@ class Address(models.Model):
 
 
 class House(models.Model):
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, default=1)
     size_in_sqfeet = models.IntegerField(max_length=10)
     rent = models.IntegerField(max_length=25)
     room_no = models.IntegerField(max_length=10)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, default=1)
+
     landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE, default=1)
     image = models.ImageField(upload_to='images/Houes', blank=True, default='images/thh.jpg')
+
 
     #def __str__(self):
        # return self.address.city
