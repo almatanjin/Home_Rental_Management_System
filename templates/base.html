@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Advertisment' %}"><h3>Home Rental System</h3> <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'Advertisment' %}"><h3>Home Rental Management System</h3> <span class="sr-only">(current)</span></a>
 
         {% if user.is_authenticated %}
 
@@ -56,18 +56,18 @@
 
          </li>
             <li class="nav-item ">
-            <a class="dropdown-item" href="{% url 'Landlords' %}">Landlords List</a>
+            <a class="dropdown-item" href="{% url 'Landlords' %}">Landlords</a>
          </li>
 
 
           </li>
             <li class="nav-item ">
-            <a class="dropdown-item" href="{% url 'House' %}">House List</a>
+            <a class="dropdown-item" href="{% url 'House' %}">House</a>
          </li>
 
             </li>
             <li class="nav-item ">
-            <a class="dropdown-item" href="{% url 'Advertisment' %}">Advertisment List</a>
+            <a class="dropdown-item" href="{% url 'Advertisment' %}">Advertisment</a>
          </li>
 
                 <li class="nav-item ">
