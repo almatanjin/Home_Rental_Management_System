@@ -84,6 +84,7 @@
             <button  type="submit">Search</button>
         </form>
     {% endif %}
+      
       {% if not user.is_authenticated %}
           <a href="{% url 'Advertismentspicture' %}" class="btn btn-outline-success">Home</a>
         <a href="{% url 'Registration' %}" class="btn btn-outline-success mr-2">Sign Up</a>
