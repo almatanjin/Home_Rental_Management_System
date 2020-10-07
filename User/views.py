@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import  ProfileForm
@@ -44,7 +44,7 @@ def create_profile(request):
             profile_object.user = request.user
             profile_object.save()
 
-            return redirect('Advertisment')
+            return redirect('view-profile')
 
     context = {
         'form' : form
