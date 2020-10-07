@@ -13,7 +13,7 @@
 
     <title>Project</title>
 </head>
-<body style="background-color: lightcoral">
+<body style="background-color: coral">
 
 
 
@@ -41,18 +41,18 @@
           </li>
             </li>
 
-
+      {% if  user.is_landlord %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Insert
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'Insertlandlord' %}">Landloard</a>
+{#          <a class="dropdown-item" href="{% url '' %}">Landloard</a>#}
           <a class="dropdown-item" href="{% url 'InsertHouse' %}">House</a>
           <a class="dropdown-item" href="{% url 'InsertAdvertisment' %}">Advertisement</a>
         </div>
       </li>
-
+      {% endif %}
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           List

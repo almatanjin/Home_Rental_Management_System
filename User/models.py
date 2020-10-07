@@ -7,7 +7,9 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='images/profile')
     #cv = models.FileField(upload_to='cv')
     contact_no = models.IntegerField(null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #name = models.CharField(max_length=100)
 
+    #email = models.EmailField(max_length=100, null=True, default=1)
     def __str__(self):
         return self.user.username

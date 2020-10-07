@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from .advertisment_models import Advertisement
 from .form import Insertadvertisment
 from django.contrib.auth.decorators import login_required
+from Landlord.landlord_models import Landlord
+from django.contrib.auth.models import User
+from Renters.models import Renters
 # Create your views here.
 @login_required
 def advertisementinfo(request):
@@ -10,7 +13,7 @@ def advertisementinfo(request):
 
     if request.method == 'POST':
         advertisment = Advertisement.objects.filter(house__address__area__icontains=request.POST['search'])
-        #addresses = Address.objects.filter(area__icontains=request.POST['search'])
+
 
 
     context = {
@@ -25,21 +28,29 @@ def advertisementinfo(request):
 @login_required
 def insertadvertismentinfo(request):
     form = Insertadvertisment()
-    message="Insert Advertisement Information"
-    if request.method == 'POST' :
+    landlord = Landlord.objects.get(user=request.user)
+
+    #if landlord:
+    message = "Insert Advertisement Information"
+    if request.method == 'POST':
         form = Insertadvertisment(request.POST, request.FILES)
         message = "Oops,Try again"
         if form.is_valid():
-            form.save()
+            ads = form.save(commit=False)
+            ads.landlord = landlord
+            ads.save()
             form = Insertadvertisment()
             message = "Successfull !"
             return redirect('Advertisment')
 
     context = {
-        'form' : form,
-        'message' : message
-    }
-    return render(request,'advertisement/insertadvertisment.html',context)
+            'form': form,
+            'message': message
+        }
+    return render(request, 'advertisement/insertadvertisment.html', context)
+    #else:
+        #return render(request, 'advertisement/advertisement_info.html', context)
+        #redirect("Advertisment")
 
 def advertisementpic(request):
     advertisment = Advertisement.objects.all()

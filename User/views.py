@@ -3,7 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import  ProfileForm
 from .models import Profile
-
+from Landlord.landlord_models import Landlord
+from Renters.models import Renters
 # Create your views here.
 
 def register(request):
@@ -12,8 +13,18 @@ def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')
+            st = request.POST.get("landlord")
+            if st:
+                if int(st)==1:
+                    user=form.save()
+                    landlord=Landlord(user=user)
+                    landlord.save()
+                    return redirect('login')
+            else:
+                user = form.save()
+                renter =Renters(user=user)
+                renter.save()
+                return redirect('login')
 
     context ={
         'form' : form

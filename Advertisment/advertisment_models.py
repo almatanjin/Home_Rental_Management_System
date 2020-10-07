@@ -1,7 +1,7 @@
 from django.db import models
 from Landlord.landlord_models import Landlord
 from House.house_models import House
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Advertisement(models.Model):

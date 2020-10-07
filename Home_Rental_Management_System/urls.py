@@ -33,7 +33,7 @@ urlpatterns = [
     path('House/',Hviews.House_info , name='House'),
     path('Renters/',Rview.Rentersinfo),
     path('Advertisment/',Aview.advertisementinfo , name='Advertisment'),
-    path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
+    #path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('create-profile/', Uview.create_profile, name='create-profile'),
     path('view-profile/', Uview.view_profile, name='view-profile'),

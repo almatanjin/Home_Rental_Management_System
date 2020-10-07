@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .landlord_models import Landlord
-from .form import InsertLandlord
+#from .form import InsertLandlord
 from django.contrib.auth.decorators import login_required
 
 
@@ -13,20 +13,3 @@ def Landlordinfo(request) :
         "Landlords" : Landlords
     }
     return render(request,'landlord/landlordinfo.html',context)
-@login_required
-def insertlandlordinfo(request):
-    form = InsertLandlord()
-    message="Insert Landlord Information"
-    if request.method == 'POST' :
-        form = InsertLandlord(request.POST)
-        message = "Oops,Try again"
-        if form.is_valid():
-            form.save()
-            form = InsertLandlord()
-            message = "Successfully you become a landord.Now you an letout you house for rent."
-            return redirect('Landlords')
-    context = {
-        'form' : form,
-        'message' : message
-    }
-    return render(request,'landlord/insertlandlord.html',context)

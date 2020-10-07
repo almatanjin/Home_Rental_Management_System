@@ -1,5 +1,6 @@
 from django.db import models
 from Landlord.landlord_models import Landlord
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -19,7 +20,7 @@ class House(models.Model):
     rent = models.IntegerField(max_length=25)
     room_no = models.IntegerField(max_length=10)
 
-    landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE, default=1)
+    landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE, default=1) #User
     image = models.ImageField(upload_to='images/Houes', blank=True, default='images/thh.jpg')
 
 
