@@ -47,16 +47,19 @@ def create_profile(request):
             return redirect('view-profile')
 
     context = {
-        'form' : form
+        'form' : form,
+        'landlord':True
     }
 
     return render(request, 'User/create_profile.html', context)
 
 
 def view_profile(request):
+
     profile = Profile.objects.get(user=request.user)
     context = {
-        'profile': profile
+        'profile': profile,
+        'landlord':True
     }
 
     return render(request, 'User/view_profile.html', context)

@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 @login_required
 def House_info(request):
+    lanlord = Landlord.objects.filter(user=request.user)
     Houses = House.objects.all()
 
     print(Houses)
@@ -17,14 +18,20 @@ def House_info(request):
     #if request.method == 'POST':
 
         #Houses = House.objects.filter(address__area__icontains=request.POST['search'])
+    if lanlord:
+        context = {
+            "landlord": True,
+            "Houses": Houses,
+        }
+    else:
+        context = {
+            "Houses": Houses,
+        }
 
 
 
 
-    context = {
-        "Houses": Houses,
-        #"Addresses" : Addresses
-    }
+
     return render(request,'House/House_info.html',context)
 
 
@@ -32,29 +39,31 @@ def House_info(request):
 def insertHouseinfo(request):
     form = InsertHouse()
     landlord = Landlord.objects.get(user= request.user)
-    #if landlord:
-    message = "Insert House Information"
-    if request.method == 'POST':
-        form = InsertHouse(request.POST, request.FILES)
-        message = "Oops,Try again"
+    if Landlord:
+        message = "Insert House Information"
+        if request.method == 'POST':
+            form = InsertHouse(request.POST, request.FILES)
+            message = "Oops,Try again"
 
-        if form.is_valid():
-            house = form.save(commit=False)
-            # house.user =request.user
-            house.landlord = landlord
-            house.save()
-            form = InsertHouse()
-            message = "Successfull !"
-            return redirect('House')
+            if form.is_valid():
+                house = form.save(commit=False)
+                # house.user =request.user
+                house.landlord = landlord
+                house.save()
+                form = InsertHouse()
+                message = "Successfull !"
+                return redirect('House')
 
-    context = {
+        context = {
             'form': form,
             'message': message,
+            'landlord':True
 
         }
-    return render(request, 'House/inserthouse.html', context)
-    #else:
-        #return render(request, 'House/advertisement_info.html', context)
+        return render(request, 'House/inserthouse.html', context)
+
+    else:
+        return render(request, 'House/advertisement_info.html')
         #redirect ("Advertisment")
 
 @login_required

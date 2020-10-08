@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if landlord %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -9,5 +10,6 @@
         <input type="submit">
 
     </form>
+    {% endif %}
 
 {% endblock content %}

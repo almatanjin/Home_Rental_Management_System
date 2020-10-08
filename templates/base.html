@@ -26,7 +26,10 @@
         <a class="nav-link" href="{% url 'Advertisment' %}"><h3>Home Rental Management System</h3> <span class="sr-only">(current)</span></a>
 
         {% if user.is_authenticated %}
-
+            {% if not landlord %}
+            <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+                {% endif %}
+            {% if landlord %}
           <li class="nav-item dropdown">
 
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +44,7 @@
           </li>
             </li>
 
-      {% if  user.is_landlord %}
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Insert
@@ -52,8 +55,9 @@
           <a class="dropdown-item" href="{% url 'InsertAdvertisment' %}">Advertisement</a>
         </div>
       </li>
-
       {% endif %}
+
+
 
     </ul>
 

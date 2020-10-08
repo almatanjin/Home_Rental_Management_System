@@ -8,6 +8,7 @@ from Renters.models import Renters
 # Create your views here.
 @login_required
 def advertisementinfo(request):
+    lanlord =Landlord.objects.filter(user=request.user)
     advertisment = Advertisement.objects.all()
     print(advertisment)
 
@@ -15,10 +16,15 @@ def advertisementinfo(request):
         advertisment = Advertisement.objects.filter(house__address__area__icontains=request.POST['search'])
 
 
-
-    context = {
+    if lanlord:
+        context = {
+        "landlord":True,
         "Advertisment": advertisment
-    }
+            }
+    else:
+        context = {
+          "Advertisment": advertisment
+        }
     return render(request,'advertisement/advertisement_info.html',context)
 
 
@@ -45,7 +51,8 @@ def insertadvertismentinfo(request):
 
     context = {
             'form': form,
-            'message': message
+            'message': message,
+            'landlord': True
         }
     return render(request, 'advertisement/insertadvertisment.html', context)
     #else:
