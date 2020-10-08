@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import  ProfileForm
 from .models import Profile
 from Landlord.landlord_models import Landlord
-from Renters.models import Renters
+from Renters.models import Renter
+
 # Create your views here.
 
 def register(request):
@@ -22,7 +23,7 @@ def register(request):
                     return redirect('login')
             else:
                 user = form.save()
-                renter =Renters(user=user)
+                renter =Renter(user=user)
                 renter.save()
                 return redirect('login')
 

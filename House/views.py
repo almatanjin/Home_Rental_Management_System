@@ -69,6 +69,7 @@ def insertHouseinfo(request):
 @login_required
 def insertaddressinfo(request):
     form = InsertAddress()
+    landlord = Landlord.objects.get(user=request.user)
     message="Insert house address"
     if request.method == 'POST' :
         form = InsertAddress(request.POST)
@@ -80,6 +81,7 @@ def insertaddressinfo(request):
             return redirect('InsertHouse')
     context = {
         'form' : form,
-        'message' : message
+        'message' : message,
+        'landlord':True
     }
     return render(request,'house/insertaddress.html',context)

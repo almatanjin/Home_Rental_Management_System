@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import  Renters
+from .models import  Renter
 # Register your models here.
-admin.site.register(Renters)
+admin.site.register(Renter)

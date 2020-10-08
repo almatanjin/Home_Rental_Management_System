@@ -27,7 +27,20 @@
 
         {% if user.is_authenticated %}
             {% if not landlord %}
-            <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+               <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'rcreate-profile' %}">Create Profile</a>
+              <a class="dropdown-item" href="{% url 'rview-profile' %}">View Profile</a>
+{#              <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>#}
+
+            </div>
+          </li>
+            </li>
+
                 {% endif %}
             {% if landlord %}
           <li class="nav-item dropdown">
@@ -38,7 +51,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'create-profile' %}">Create Profile</a>
               <a class="dropdown-item" href="{% url 'view-profile' %}">View Profile</a>
-              <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+{#              <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>#}
 
             </div>
           </li>
@@ -83,6 +96,7 @@
 
                 <li class="nav-item ">
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
         </li>
 
     </ul>

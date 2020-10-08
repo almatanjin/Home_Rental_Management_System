@@ -4,7 +4,7 @@ from .form import Insertadvertisment
 from django.contrib.auth.decorators import login_required
 from Landlord.landlord_models import Landlord
 from django.contrib.auth.models import User
-from Renters.models import Renters
+from Renters.models import Renter
 # Create your views here.
 @login_required
 def advertisementinfo(request):
