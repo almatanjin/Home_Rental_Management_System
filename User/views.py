@@ -55,6 +55,7 @@ def create_profile(request):
     return render(request, 'User/create_profile.html', context)
 
 
+@login_required
 def view_profile(request):
 
     profile = Profile.objects.get(user=request.user)
