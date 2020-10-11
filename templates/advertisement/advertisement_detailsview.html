@@ -12,9 +12,10 @@
 
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Landlord :  {{ search.landlord.name }}</h5>
+                <h5 class="card-title">Landlord :  {{ search.landlord.user.username }}</h5>
+
                 <p class="card-text">
-                    Contact: {{ search.landlord.Contact_number }} <br>
+                    Contact: {{ search.landlord.user.contact_no }} <br>
                     {{ search.id }} <br>
                     {{ search.house }} <br>
                     Area: {{ search.house.address.area}} <br>
