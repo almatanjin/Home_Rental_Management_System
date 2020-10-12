@@ -4,13 +4,13 @@
 {% if landlord %}
 <h3>{{ message }}</h3>
     <form method="post" enctype="multipart/form-data"><br>
-    <a href="{% url 'InsertAddress' %}" class="btn btn-primary">InsertAddress</a><br><br>
+    <a href="{% url 'InsertAddress' %}" class="btn btn-outline-dark mr-2">InsertAddress</a><br><br>
 
         {% csrf_token %}
 
         {{ form | crispy }}
 {#   <button class="btn btn-success" type="submit">Submit</button>#}
-  <button  class="btn btn-primary" type="submit">Submit</button>
+  <button  class="btn btn-outline-dark mr-2" type="submit">Submit</button>
     </form>
 {% endif %}
 {% endblock content %}
