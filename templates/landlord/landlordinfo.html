@@ -1,16 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 style="text-align: center ; color: antiquewhite">All Landlors are ready to letout their home</h1>
+<h1 style="text-align: center ; color: black  " >All Landlors are ready to letout their home</h1>
 
-{% for i in Landlords %}
 
-    <p style="color: antiquewhite ; text-align: center">
-    <h3>Landlords : {{ i.user_id }}</h3>
-    {{ i.name }}<br>
-    {{ i.email }}<br>
-    {{ i.contact_no }}<br>
+{# <div class="row row-cols-2 row-cols-md-6"> #}
+     <table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
 
+      <th scope="col"><h5>Landlord</h5> </th>
+      <th scope="col"><h5>Name</h5> </th>
+      <th scope="col"><h5>Email</h5></th>
+      <th scope="col"><h5>Phone No</h5></th>
+    </tr>
+  </thead>
+      {% for i in Landlords %}
+
+
+      <tbody>
+       <tr>
+
+           <td> <h6>{{ i.user_id }}</h6></td>
+           <td><h6>{{ i.name }}</h6></td>
+           <td><h6>{{ i.email }}</h6></td>
+           <td><h6>{{ i.contact_no }}</h6></td>
+       </tr>
+      </tbody>
+
+
+
+      {# <h3>Landlords : {{ i.user_id }}</h3> #}
+      {#{{ i.name }}<br>  #}
+      {# {{ i.email }}<br> #}
+      {#    {{ i.contact_no }}<br>#}
     </p>
 
 {% endfor %}
+    </table>
+{# </div> #}
 {% endblock content %}

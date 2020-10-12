@@ -1,10 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-    <h1 style="color: aliceblue">For entry ,You should login first</h1>
+    <h1 style="color: black"></h1>
     <form method="POST" action="">
       {% csrf_token %}
-      {{ form | crispy }}
-      <button class="btn btn-success" type="submit">Submit</button>
-   </form>
+        
+      <h6 style="width: 25em ; position: absolute; top: 200px; right: 480px" >
+          <ul class="list-group">
+
+               <li class="list-group-item list-group-item-success">
+
+                 <form>
+                          <div class="form-group">
+                            <label for="text">Username</label>
+                            <input type="text" class="form-control">
+
+                          </div>
+                 </form>
+               </li>
+
+               <li class="list-group-item list-group-item-success">
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                          </div>
+               </li>
+               <li class="list-group-item list-group-item-success">
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
+
+                          </div>
+               </li>
+
+
+       </ul>
+      </h6>
+    </form>
+
+
 {% endblock content %}
