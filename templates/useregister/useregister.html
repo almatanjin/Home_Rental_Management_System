@@ -1,15 +1,75 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load crispy_forms_tags %}
-    <h1 style="color: black">For entry ,You should register first</h1>
-    <h3>{{ message }}</h3>
-    <form method="POST" action="">
-      {% csrf_token %}
-      {{ form | crispy }}
-       <div>
+{% block content %}
+<style>
+
+body{
+  background: #FFDAB9;
+}
+
+form{
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(0,0,0,.1);
+  padding: 45px;
+}
+
+label{
+ font-family : Serif;
+  letter-spacing: 6px;
+  text-transform: initial;
+  font-size:  20px;
+  color:  #000000;
+}
+
+input[type=text]{
+  display: inline-block;
+  border: none;
+  text-align: left;
+  box-shadow: 3px 2px rgba(121, 83, 210,.3 );
+  padding: 10px;
+  width: 350px;
+  margin: 10px 0;
+  background: transparent;
+  color: black;
+}
+
+input[type=text]:focus{
+  background: none;
+  border: none;
+  color: black;
+}
+
+button{
+  background: black;
+  color: #FFF;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 20px 0;
+  padding: 10px 10px;
+  border: 2px solid #FFF;
+}
+
+button:hover{
+  background: transparent;
+  border: 2px solid rgba(69, 39, 160, .4);
+}
+</style>
+
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form| crispy   }}<BR>
+    <div>
     <input type="checkbox" id="landlord" name="landlord" value="1">
     <label for="scales">Landlord</label>
     </div>
-      <button class="btn btn-success" type="submit">Submit</button>
-   </form>
+
+
+<button type="submit">Submit</button>
+</form>
 {% endblock content %}
+
