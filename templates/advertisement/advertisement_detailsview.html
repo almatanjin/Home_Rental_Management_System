@@ -3,30 +3,54 @@
 {% block content  %}
     {% if does_exists == True %}
 
-        <div class="card bg-light mb-2`" >
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="{{ search.image1.url }}" class="card-img" alt="...">
-              <img src="{{ search.image2.url }}" class="card-img" alt="...">
-            </div>
+       <style>
+                      .card-section {
+                      width: 25rem;
+                      margin:20px auto;
+                      box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.2);
+                    }
+                    .card-section img {
+                      width: 100%;
+                      height: 250px;
+                      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 36px));
+                    }
+                    .card-body h4 {
+                      margin: 0px;
+                      font-weight: bold;
+                      font-family: sans-serif;
+                      letter-spacing: 0.5px;
+                      color: skyblue;
+                    }
+                    .card-body {
+                      padding: 0px 15px 20px 15px;
+                    }
+                    .card-body .border-line{
+                      border-bottom:1px solid skyblue;
+                      border-width:3px;
+                      width:70px;
+                      margin:10px 0px;
+                    }
+                    .card-body .card-text{
+                      color:white;
+                      font-size:13px;
+                      letter-spacing:0.5px;
+                      margin-bottom:0px;
+                    }
 
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Landlord :  {{ search.landlord.user.username }}</h5>
+       </style>
+                <div class="card-section">
+                  <img src="{{ search.image1.url }}" class="card-img-top" alt="...">
+                   <img src="{{ search.image2.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h4 class="card-title">  {{ search.landlord.user.username }}</h4>
+                    <div class="border-line"></div>
+                    <h6  class="card-title">Contact: {{ search.landlord.user.contact_no }} </h6>
+                     <h6 class="card-title">{{ search.id }} <br></h6>
+                     <h6 class="card-title">{{ search.house }} <br></h6>
+                     <h6 class="card-title">Area: {{ search.house.address.area}} <br></h6>
 
-                <p class="card-text">
-                    Contact: {{ search.landlord.user.contact_no }} <br>
-                    {{ search.id }} <br>
-                    {{ search.house }} <br>
-                    Area: {{ search.house.address.area}} <br>
-
-                </p>
-                <p class="card-text"><small class="text-muted"></small></p>
-
-              </div>
-            </div>
-          </div>
-        </div>
+                  </div>
+                </div>
 
     {% else %}
          <h1>Sorry!! No Advertisment!!</h1>

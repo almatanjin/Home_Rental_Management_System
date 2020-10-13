@@ -1,28 +1,130 @@
 {% extends 'base.html' %}
 {% block content %}
 <br> <br>
-<h2>There are some desire houses</h2>
+    <div class="alert alert-success" role="alert">
+  <h3 class="alert-heading" style="text-align: center ;color: black  " >There are some desire houses!!</h3>
+
+</div>
+
+
+
+    <style>
+
+    profile-card-4 {
+    max-width: 450px;
+    background-color: darksalmon;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.profile-card-4 img {
+    transition: all 0.25s linear;
+}
+
+.profile-card-4 .profile-content {
+    position: relative;
+    padding: 25px;
+    background-color: #E9967A;
+}
+
+.profile-card-4 .profile-name {
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -70px;
+    color: #FFF;
+    font-size: 25px;
+}
+
+.profile-card-4 .profile-name p {
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}
+
+.profile-card-4 .profile-description {
+    color: #008B8B;
+    font-size: 17px;
+    padding: 10px;
+}
+
+.profile-card-4 .profile-overview {
+    padding: 15px 30px;
+}
+
+.profile-card-4 .profile-overview p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #777;
+}
+
+.profile-card-4 .profile-overview h4 {
+    color: #273751;
+    font-weight: bold;
+}
+
+.profile-card-4 .profile-content::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    top: -10px;
+    left: 0px;
+    right: 0px;
+    background-color: #FFF;
+    z-index: 0;
+    transform: skewY(1deg);
+}
+
+.profile-card-4:hover img {
+    transform: rotate(1deg) scale(1.1, 1.1);
+    filter: brightness(110%);
+}
+
+    </style>
 
 </br> </br>
-    <div class="row row-cols-3 row-cols-md-3">
+<div class="row row-cols-3 row-cols-md-3">
 
         {% for i in Houses %}
-            <div class="col mb-4">
+               <div class="col mb-4">
+
+                         <div class="profile-card-4 text-center"><img src="{{i.image.url}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{ profile.name}}
+
+                                </div>
+                                <div class="profile-description"><h4>Let me let my house!!</h4></div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="profile-overview">
+                                            <h6>Landloard Name: :</h6>
+                                            <h6>House:</h6>
+                                            <h6>Room:</h6>
+                                            <h6>Size_in_sqfeet:</h6>
+                                            <h6> Rent:</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="profile-overview">
+                                            <h6>{{ i.landlord.user.username }}</h6>
+                                            <h6>{{ i.id }}</h6>
+                                            <h6>{{ i.room_no}}</h6>
+                                            <h6>{{ i.size_in_sqfeet }}</h6>
+                                            <h6>{{ i.rent }}</h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+               </div>
 
 
-
-               <div class="card">
-              <img src="{{i.image.url}}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"> Landloard Name: {{ i.landlord.user.username }}</h5>
-                <h6 class="card-text">  House : {{ i.id }}</h6>
-                <h6 class="card-text">  Room :{{ i.room_no}}</h6>
-                <h6 class="card-text">  Size_in_sqfeet :{{ i.size_in_sqfeet }}</h6>
-                <h6 class="card-text">  Rent :{{ i.rent }}</h6>
-
-              </div>
-            </div>
-            </div>
         {% endfor %}
 
     </div>

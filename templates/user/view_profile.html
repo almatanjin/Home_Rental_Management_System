@@ -1,17 +1,113 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 
-{#    <img src="{{ profile.profile_picture.url }}" height="300" width="300"><br>#}
-    <img src="{{ profile.profile_picture.url }}" alt="..." height="250" width="250" class="rounded-circle">
+<style>
 
-        <h5>Username : {{ user.username}}</h5><br>
-        <h5>Name : {{ profile.name}}</h5><br>
-       <h5>email : {{ profile.email}}</h5><br>
-        <h5>Phone_Number : {{ profile.contact_no }}</h5>
+.profile-card-4 {
+    max-width: 450px;
+    background-color: #E9967A;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    cursor: pointer;
+}
 
+.profile-card-4 img {
+    transition: all 0.25s linear;
+}
+
+.profile-card-4 .profile-content {
+    position: relative;
+    padding: 25px;
+    background-color: #E9967A;
+}
+
+.profile-card-4 .profile-name {
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -70px;
+    color: #FFF;
+    font-size: 25px;
+}
+
+.profile-card-4 .profile-name p {
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}
+
+.profile-card-4 .profile-description {
+    color: #008B8B;
+    font-size: 17px;
+    padding: 10px;
+}
+
+.profile-card-4 .profile-overview {
+    padding: 15px 50px;
+}
+
+.profile-card-4 .profile-overview p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #777;
+}
+
+.profile-card-4 .profile-overview h4 {
+    color: #273751;
+    font-weight: bold;
+}
+
+.profile-card-4 .profile-content::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    top: -10px;
+    left: 0px;
+    right: 0px;
+    background-color: #FFF;
+    z-index: 0;
+    transform: skewY(5deg);
+}
+
+.profile-card-4:hover img {
+    transform: rotate(10deg) scale(1.1, 1.1);
+    filter: brightness(110%);
+}
+
+
+</style>
+
+    <div class="profile-card-4 text-center"><img src="{{ profile.profile_picture.url }}" class="img img-responsive">
+        <div class="profile-content">
+            <div class="profile-name">{{ profile.name}}
+
+            </div>
+            <div class="profile-description"><h4>Let me let my house!!</h4></div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="profile-overview">
+                        <h6>NAME :</h6>
+                        <h6>PHONE NO :</h6>
+                        <h6>EMAIL:</h6>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="profile-overview">
+                        <h6>{{user.username}}</h6>
+                        <h6>{{profile.contact_no }}</h6>
+                        <h6>{{ profile.email}}</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock content %}
