@@ -38,13 +38,15 @@
                     }
 
        </style>
+
                 <div class="card-section">
                   <img src="{{ search.image1.url }}" class="card-img-top" alt="...">
                    <img src="{{ search.image2.url }}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h4 class="card-title">  {{ search.landlord.user.username }}</h4>
                     <div class="border-line"></div>
-                    <h6  class="card-title">Contact: {{ search.landlord.user.contact_no }} </h6>
+{#                      <h4 class="card-title">  {{ search.profile.contact_no }}</h4>#}
+                    <h6  class="card-title">Contact: 01990747505</h6>
                      <h6 class="card-title">{{ search.id }} <br></h6>
                      <h6 class="card-title">{{ search.house }} <br></h6>
                      <h6 class="card-title">Area: {{ search.house.address.area}} <br></h6>
