@@ -21,16 +21,16 @@
       {% for i in Landlords %}
 
 
-      <tbody>
+      <body>
        <tr>
 
            <td> <h6>{{ i.user_id }}</h6></td>
            <td><h6>{{ i.name }}</h6></td>
            <td><h6>{{ i.email }}</h6></td>
            <td><h6>{{ i.contact_no }}</h6></td>
-           <th><img src="{{ i.profile_picture.url }} " width="50" height="50"</th>
+           <td><img src="{{ i.profile_picture.url }} " width="50" height="50"></td>
        </tr>
-      </tbody>
+      </body>
 
 
 
