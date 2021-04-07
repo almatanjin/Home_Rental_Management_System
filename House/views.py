@@ -85,3 +85,5 @@ def insertaddressinfo(request):
         'landlord':True
     }
     return render(request,'house/insertaddress.html',context)
+
+
