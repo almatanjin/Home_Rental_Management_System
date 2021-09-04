@@ -30,7 +30,7 @@
 
       <li class="navbar-brand">
   <a class="navbar-brand" href="{% url 'Advertisment' %}">
-    <h3>Home Rental Management System</h3>
+    <h3>To-Let Too-fast</h3>
   </a>
       </li>
         {% if user.is_authenticated %}
@@ -102,7 +102,7 @@
 
             <input  type="search" name="search">
 
-            <button  type="submit">Search</button>
+            <button  type="submit" id="search">Search</button>
         </form>
     {% endif %}
       
@@ -115,7 +115,8 @@
    </ul>
 
          <a class="navbar-brand" href="{% url 'Advertismentspicture' %}" class="btn btn-outline-primary">
-    <img src="/media/images/logo1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+    <img src="/media/images/logo1.jpg
+" width="50" height="50" class="d-inline-block align-top" alt="" loading="lazy">
 
   </a>
 

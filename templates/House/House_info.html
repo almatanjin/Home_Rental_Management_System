@@ -98,24 +98,57 @@
                                 <div class="profile-name">{{ profile.name}}
 
                                 </div>
-                                <div class="profile-description"><h4>Let me let my house!!</h4></div>
+                                <div class="profile-description"><h4>TO-LET!!</h4></div>
                                 <div class="row">
                                     <div class="col-xs-4">
                                         <div class="profile-overview">
-                                            <h6>Landloard Name:</h6>
-                                            <h6>House:</h6>
-                                            <h6>Room:</h6>
-                                            <h6>Size_in_sqfeet:</h6>
-                                            <h6> Rent:</h6>
+                                            <table class="table table-bordered">
+                                                <thead class="thead-light">
+
+                                            <tr>
+                                            <td><h6>Landloard Name:</h6></td>
+                                                <td><h6>{{ i.landlord.user.username }}</h6></td>
+                                            </tr>
+                                            <tr>
+                                            <td><h6>House:</h6></td>
+                                                <td><h6>{{ i.id }}</h6></td>
+                                            </tr>
+                                            <tr>
+
+                                            <td><h6>Room:</h6></td>
+                                                <td><h6>{{ i.room_no }}</h6></td>
+                                            </tr>
+                                            <tr>
+                                            <td><h6>Size_in_sqfeet:</h6></td>
+                                                <td><h6>{{ i.size_in_sqfeet }}</h6></td>
+                                            </tr>
+                                            <tr>
+                                            <td><h6> Rent:</h6></td>
+                                                <td><h6>{{ i.rent }}</h6></td>
+                                            </tr>
+                                                </thead>
+                                            </table>
+
+
                                         </div>
                                     </div>
                                     <div class="col-xs-4">
                                         <div class="profile-overview">
-                                            <h6>{{ i.landlord.user.username }}</h6>
-                                            <h6>{{ i.id }}</h6>
-                                            <h6>{{ i.room_no}}</h6>
-                                            <h6>{{ i.size_in_sqfeet }}</h6>
-                                            <h6>{{ i.rent }}</h6>
+
+{#                                            <h6>{{ i.id }}</h6>#}
+{#                                            <h6>{{ i.room_no}}</h6>#}
+{#                                            <h6>{{ i.size_in_sqfeet }}</h6>#}
+{#                                            <h6>{{ i.rent }}</h6>#}
+                                            <form method="post">
+                          {% csrf_token %}
+
+                          <a href="/deletehouse/{{ i.id }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <input type="submit" class="btn btn-primary" value="Cancel"/>
+                      </form>
+                                            <br>
+                                            <a href ="{{ i.id }}">
+{#                        <button type="button" class="btn btn-outline-primary"></button>#}
+                  </a>
                                         </div>
                                     </div>
 

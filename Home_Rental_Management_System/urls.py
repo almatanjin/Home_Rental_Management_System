@@ -1,4 +1,3 @@
-
 """Home_Rental_Management_System URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -34,6 +33,7 @@ urlpatterns = [
     path('House/',Hviews.House_info , name='House'),
     path('Renters/',Rview.Rentersinfo),
     path('Advertisment/',Aview.advertisementinfo , name='Advertisment'),
+
     #path('Insertlandlord/',Lview.insertlandlordinfo , name='Insertlandlord'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('create-profile/', Uview.create_profile, name='create-profile'),
@@ -46,7 +46,10 @@ urlpatterns = [
     path('Home/', Aview.advertisementpic, name='Advertismentspicture'),
     path('profile/', Uview.view_profile, name='profile'),
     path('Advertisment/<int:advertisement_id>', Aview.showAdvertisement, name='advertisements-detail'),
-    path('delete/<int:id>',Aview.delete_data,name='delete_data')
+    path('delete/<int:id>',Aview.delete_data , name='delete_data'),
+    path('House/<int:house_id>', Hviews.showhouse, name='housedynamic'),
+    path('deletehouse/<int:id>',Hviews.delete_house , name='deletehouse'),
+
 
     ]
 

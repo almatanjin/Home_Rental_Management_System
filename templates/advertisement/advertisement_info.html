@@ -307,6 +307,7 @@ background: -ms-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); /* IE10+ */
                   <h5 class="card-title">Room :{{ i.house.room_no}}</h5>
                   <h5 class="card-text"> Address :{{ i.house.address }} </h5>
                   <h5 class="card-text"> Size_in_sqfeet :{{ i.house.size_in_sqfeet }} </h5>
+
 {#                  <h5 class="card-text"> Rent :{{ i.house.rent }} </h5>#}
 
 
@@ -326,8 +327,9 @@ background: -ms-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); /* IE10+ */
                   <span class="social-box">
 
                   <a href ="{{ i.id }}">
-                        <button type="button" class="btn btn-outline-primary">Details</button>
+                        <button type="button" class="btn btn-outline-primary" id="id">Details</button>
                   </a>
+
             </span>
                 </div>
               </div>

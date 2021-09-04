@@ -53,15 +53,17 @@
                       <h6 class="card-title">Rent: {{ search.house.rent}} <br></h6>
                       <form method="post">
                           {% csrf_token %}
-                          <input type="'submit" value="Yes"/>
+                          <input type="submit" value="Yes"/>
                           <a href="/delete/{{ search.id }}">Delete</a>
+                          <input type="submit" value="Cancel"/>
                       </form>
+
 
                   </div>
                 </div>
 
     {% else %}
-         <h1>Sorry!! No Advertisment!!</h1>
+         <h1>Advertisment Deleted!!</h1>
     {% endif %}
 
 

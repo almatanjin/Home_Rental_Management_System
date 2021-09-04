@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .house_models import House
 from .form import InsertHouse,InsertAddress
 from django.contrib.auth.decorators import login_required
@@ -85,5 +85,45 @@ def insertaddressinfo(request):
         'landlord':True
     }
     return render(request,'house/insertaddress.html',context)
+@login_required
+def showhouse(request, house_id):
+
+    searched_Advertisment=  House.objects.filter( id=house_id)
+    print(searched_Advertisment)
 
 
+
+    if len (searched_Advertisment)==0:
+        does_exists =False
+        context = {
+            'does_exists': does_exists,
+        }
+    else:
+        does_exists = True
+        search = searched_Advertisment[0]
+        context = {
+        'does_exists': does_exists,
+        'search': search
+       }
+
+    return render(request, 'House/House_info.html', context)
+
+@login_required
+
+def delete_house(request, id):
+    context={}
+    print(id)
+    pi = get_object_or_404(House, id=id)
+
+
+    pi.delete()
+    return redirect('House')
+
+    return render(request,'House/House_info.html',context)
+# @login_required
+# def update_data(request,id):
+#     if request=="post":
+#         pi=House.objects.get(pk=id)
+#         fm=InsertHouse(request.POST,instance=pi)
+#         if fm.is_valid():
+#             fm.save()

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedirect
 from .advertisment_models import Advertisement
 from .form import Insertadvertisment
 from django.contrib.auth.decorators import login_required
@@ -26,7 +26,18 @@ def advertisementinfo(request):
           "Advertisment": advertisment
         }
     return render(request,'advertisement/advertisement_info.html',context)
+@login_required
 
+def delete_data(request, id):
+    context={}
+    print(id)
+    pi = get_object_or_404(Advertisement, id=id)
+
+
+    pi.delete()
+    return redirect('Advertisment')
+
+    return render(request,'advertisement/advertisement_detailsview.html',context)
 
 
 
@@ -96,14 +107,3 @@ def showAdvertisement(request, advertisement_id):
        }
 
     return render(request, 'advertisement/advertisement_detailsview.html', context)
-
-@login_required
-def delete_data(request,id):
-    context={}
-    print(id)
-    pi= get_object_or_404(Advertisement,id=id)
-
-
-    pi.delete()
-    return redirect('Advertisment')
-    return render (request,'advertisement/advertisement_detailsview.html',context)
